@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estilo.css" type="text/css">
+    <title>Registro Consumo de Agua</title>
+</head>
+<body>
+    <script>
+        function clickMe() {
+            var text = document.getElementById("show");
+            if (!text.style.display) {
+                text.style.display = "none";
+            }
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+    </script>
+    <div id="columnas">
+        <ol><form oninput="txtFullName.value = txtFirstName.value +' '+ txtLastName.value">
+            Nombre : <input type="text" name="txtFirstName" /> <br><br>
+            Apellido : <input type="text" name="txtLastName" /> <br><br>
+            Nombre Completo : <input type="text" class="Fullname" id="show" name="txtFullName" style="display: none;"  > <br><br>
+        </form></ol>
+        <ol><input type="button" class="boton" value="Mostrar" onclick="clickMe() "><br><br></ol>
+    </div>
+
+    <script>
+        //Función que realiza la suma
+        function Suma() {
+           var ingreso1 = document.calculadora.ingreso1.value;
+           var ingreso2 = document.calculadora.ingreso2.value;
+           var ingreso3 = document.calculadora.ingreso3.value;
+           var ingreso4 = document.calculadora.ingreso4.value;
+           var ingreso5 = document.calculadora.ingreso5.value;
+           var ingreso6 = document.calculadora.ingreso6.value;
+           var ingreso7 = document.calculadora.ingreso7.value;
+           try{
+              //Calculamos el número escrito:
+               ingreso1 = (isNaN(parseInt(ingreso1)))? 0 : parseInt(ingreso1);
+               ingreso2 = (isNaN(parseInt(ingreso2)))? 0 : parseInt(ingreso2);
+               ingreso3 = (isNaN(parseInt(ingreso3)))? 0 : parseInt(ingreso3);
+               ingreso4 = (isNaN(parseInt(ingreso4)))? 0 : parseInt(ingreso4);
+               ingreso5 = (isNaN(parseInt(ingreso5)))? 0 : parseInt(ingreso5);
+               ingreso6 = (isNaN(parseInt(ingreso6)))? 0 : parseInt(ingreso6);
+               ingreso7 = (isNaN(parseInt(ingreso7)))? 0 : parseInt(ingreso7);
+               document.calculadora.resultado.value = ingreso1+ingreso2+ingreso3+ingreso4+ingreso5+ingreso6+ingreso7;
+               document.calculadora.resultado2.value = ingreso1+ingreso2+ingreso3+ingreso4+ingreso5;
+
+           }
+           //Si se produce un error no hacemos nada
+           catch(e) {}
+        }
+    </script>  
+    <form name="calculadora">
+        Cantidad de vasos consumidos en 5 dias:
+        <input type="text" class="resultado" name="resultado2" disabled><br><br>
+        <label for="name">Dia 1:</label>
+        <input type="text" name="ingreso1" onKeyUp="Suma()"><br><br>
+        <label for="name">Dia 2:</label>
+        <input type="text" name="ingreso2" onKeyUp="Suma()"><br><br>
+        <label for="name">Dia 3:</label>
+        <input type="text" name="ingreso3" onKeyUp="Suma()"><br><br>
+        <label for="name">Dia 4:</label>
+        <input type="text" name="ingreso4" onKeyUp="Suma()"><br><br>
+        <label for="name">Dia 5:</label>
+        <input type="text" name="ingreso5" onKeyUp="Suma()"><br><br>
+        <label for="name">Dia 6:</label>
+        <input type="text" name="ingreso6" onKeyUp="Suma()"><br><br>
+        <label for="name">Dia 7:</label>
+        <input type="text" name="ingreso7" onKeyUp="Suma()"><br><br>
+        Total Vasos Consumidos es:
+        <input type="text" class="resultado" name="resultado" disabled><br>
+    </form>   
+</body>
+</html>
